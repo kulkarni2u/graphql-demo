@@ -1,0 +1,32 @@
+server:
+  port: 9092
+
+spring:
+  application:
+    name: graphql-demo
+  h2:
+    console:
+      enabled: true
+      path: /h2_console
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  datasource:
+    name: graphql-demo
+  jpa:
+    show-sql: true
+
+graphql:
+      servlet:
+               mapping: /graphql
+               enabled: true
+               corsEnabled: true
+
+graphiql:
+   mapping: /graphiql
+   endpoint: /graphql
+   enabled: true
+
+logging:
+  level: info
