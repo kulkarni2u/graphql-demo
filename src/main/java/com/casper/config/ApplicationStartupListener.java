@@ -32,15 +32,15 @@ public class ApplicationStartupListener implements ApplicationListener<ContextRe
     }
 
     private void initData() {
-        Author anirudh = service.createAuthor(new Author().setName("Anirudh"));
-        Author rani = service.createAuthor(new Author().setName("Nagarani"));
+        Author author = service.createAuthor(new Author().setName("Anirudh Karanam"));
+        Author author1 = service.createAuthor(new Author().setName("James Bond"));
 
-        Post post = service.createPost(new Post().setContent("First Post").setAuthor(anirudh));
+        Post post = service.createPost(new Post().setContent("First Post").setAuthor(author));
         service.addComment(new Comment().setContent("First Comment").setPost(post));
 
-        service.createPost(new Post().setContent("Another Post").setAuthor(rani));
+        service.createPost(new Post().setContent("Another Post").setAuthor(author1));
 
-        service.getPostsByAuthor(anirudh.getId())
+        service.getPostsByAuthor(author.getId())
                 .forEach(System.out::println);
     }
 }
